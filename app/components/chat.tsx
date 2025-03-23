@@ -107,7 +107,7 @@ const Chat = ({
         method: "POST",
         body: JSON.stringify({
           content: [
-            {type: "text", "text": "What high energy hazards are in this image?"},
+            {type: "text", "text": "Explain what is going on ine pic. What high energy hazards are present? Recommned direct controls for safety"},
             {type: "image_url", "image_url": {"url": image_url}}
           ],
         }),
