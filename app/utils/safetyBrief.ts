@@ -1,5 +1,4 @@
 const submitSafetyBriefForm = (brief) => {
-  
     return { success: true };
   };
   
