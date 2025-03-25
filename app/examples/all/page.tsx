@@ -5,6 +5,7 @@ import styles from "./page.module.css";
 import Chat from "../../components/chat";
 import WeatherWidget from "../../components/weather-widget";
 import { getWeather } from "../../utils/weather";
+import { getEvents } from "../../utils/events";
 import { submitSafetyBriefForm } from "../../utils/safetyBrief";
 import FileViewer from "../../components/file-viewer";
 
@@ -18,9 +19,16 @@ const FunctionCalling = () => {
       const data = getWeather(args.location);
       setWeatherData(data);
       return JSON.stringify(data);
-    } else if (call?.function?.name === "submit_safety_brief_form")
+    } 
+    else if (call?.function?.name === "submit_safety_brief_form")
     {
       return JSON.stringify({"success": true});
+    } 
+    else if (call?.function?.name === "get_equipment_failures")
+    {
+      const args = JSON.parse(call.function.arguments);
+      const data = getEvents(args.location);
+      return JSON.stringify(data);
     }
   };
 
